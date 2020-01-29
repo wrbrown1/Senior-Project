@@ -305,15 +305,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e9606233688b743b839a853a12fd48, type: 3}
+  m_Script: {fileID: 11500000, guid: dc81a45e10161574c93484deb9b54fd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHitObject: {fileID: 0}
-  sphereRadius: 2
-  maxDistance: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 55
+  focus: {fileID: 1699716136}
+  horizontalCameraSensitivity: 10
+  verticalCameraSensitivity: 10
+  cameraDistanceFromPlayer: 6.5
+  cameraMinDistance: 2.5
+  cameraMaxDistance: 6.5
+  cameraHieght: 0.5
+  cameraSmoothSpeed: 0.05
+  pitchBoundary: {x: -45, y: 60}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,18 +326,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc81a45e10161574c93484deb9b54fd3, type: 3}
+  m_Script: {fileID: 11500000, guid: a3e9606233688b743b839a853a12fd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  focus: {fileID: 1699716136}
-  horizontalCameraSensitivity: 10
-  verticalCameraSensitivity: 10
-  cameraDistance: 6.5
-  cameraMinDistance: 1
-  cameraMaxDistance: 6.5
-  cameraHieght: 1.3
-  cameraSmoothSpeed: 0
-  pitchBoundary: {x: -90, y: 90}
+  currentHitObject: {fileID: 0}
+  maxDistance: 6.5
+  rayLineDamping: 2
+  sphereRadius: 3
+  adjustmentSmoothing: 0.2
+  currentHitDistance: 0
+  cameraZoom: 0
+  maxHieghtAdjustment: 1.5
+  minHieghtAdjustment: 0.5
+  whenHeightSmooths: 0.99
+  hieghtSmoothing: 0.2
+  sphereLayerMask:
+    serializedVersion: 2
+    m_Bits: 55
+  lineLayerMask:
+    serializedVersion: 2
+    m_Bits: 567
 --- !u!1 &1447051233
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +486,7 @@ GameObject:
   - component: {fileID: 1499450014}
   - component: {fileID: 1499450013}
   - component: {fileID: 1499450012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +574,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699716135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1447051238}

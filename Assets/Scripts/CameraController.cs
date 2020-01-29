@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     public float horizontalCameraSensitivity = 10f;
     public float verticalCameraSensitivity = 10f;
-    public float cameraDistance = 2f;
+    public float cameraDistanceFromPlayer = 2f;
     public float cameraMinDistance = 1f;
     public float cameraMaxDistance = 6.5f;
     public float cameraHieght = 2f;
@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     Vector3 targetRotation;
     Vector3 currentRotationVelocity;
 
+    CameraCollisionController collisionController;
+
     float pitch;
     float yaw;
 
@@ -28,6 +30,7 @@ public class CameraController : MonoBehaviour
         GetInput();
         UpdateRotation();
         UpdateTranslation();
+        cameraDistanceFromPlayer = Mathf.Clamp(cameraDistanceFromPlayer, cameraMinDistance, cameraMaxDistance);
     }
 
     private void GetInput()
@@ -44,7 +47,6 @@ public class CameraController : MonoBehaviour
     }
     private void UpdateTranslation()
     {
-        Mathf.Clamp(cameraDistance, cameraMinDistance, cameraMinDistance);
-        transform.position = focus.position - cameraDistance * transform.forward + new Vector3(0f, cameraHieght, 0f);
+        transform.position = focus.position - cameraDistanceFromPlayer * transform.forward + new Vector3(0f, cameraHieght, 0f);
     }
 }
