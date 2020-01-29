@@ -6,9 +6,12 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform focus;
+
     public float horizontalCameraSensitivity = 10f;
     public float verticalCameraSensitivity = 10f;
     public float cameraDistance = 2f;
+    public float cameraMinDistance = 1f;
+    public float cameraMaxDistance = 6.5f;
     public float cameraHieght = 2f;
     public float cameraSmoothSpeed;
     public Vector2 pitchBoundary = new Vector2(-90f, 90f);
@@ -41,18 +44,7 @@ public class CameraController : MonoBehaviour
     }
     private void UpdateTranslation()
     {
+        Mathf.Clamp(cameraDistance, cameraMinDistance, cameraMinDistance);
         transform.position = focus.position - cameraDistance * transform.forward + new Vector3(0f, cameraHieght, 0f);
-    }
-
-    public class CollistionHandler
-    {
-        public bool colliding;
-
-        public LayerMask cameraCollisionLayer;
-
-        public Vector3[] defaultClipPoints;
-        public Vector3[] adjustedClipPoints;
-
-        Camera camera;
     }
 }
